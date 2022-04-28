@@ -60,3 +60,41 @@ function printMember(){
         //console.log(team[member].name);
     }
 }
+
+
+document.getElementById("addMemberButton").addEventListener("click", readMember);
+
+function readMember(){
+    /*
+    1. leggo i value degli input
+    2. creo un object con i valori
+    3. invio l'oggetto a drawTeamMember che lo stampa
+    4. aggiungo l'oggetto alla base dati
+    5. resetto il form
+    */
+
+    const name= document.getElementById("name").value;
+    const role= document.getElementById("role").value;
+    const pic= document.getElementById("image").value;
+
+    const newMember= {
+        name:name,
+        role:role,
+        pic:pic,
+    };
+    team.push("newMember");
+    display.innerHTML+=`
+        <div class="team-card">
+            <div class="card-image">
+                <img
+                src="img/${newMember.pic}"
+                alt="${newMember.name}"
+                />
+            </div>
+            <div class="card-text">
+                <h3>${newMember.name}</h3>
+                <p>${newMember.role}</p>
+            </div>
+        </div>`
+}
+console.log(team);
